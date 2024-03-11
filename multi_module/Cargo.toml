@@ -1,0 +1,23 @@
+# src/
+# ├── main.rs               # Entry point
+# ├── lib.rs                # Library root, describes module structure
+# └── operations/           # First-level module
+#     ├── mod.rs            # Declares the operations module and its submodules
+#     ├── arithmetic.rs     # Second-level module for arithmetic operations
+#     └── bitwise/          # Second-level module for bitwise operations
+#         ├── mod.rs        # Declares the bitwise module and its submodules
+#         ├── basic.rs      # Third-level module for basic bitwise operations
+#         └── advanced/     # Third-level module for advanced bitwise operations
+#             ├── mod.rs    # Declares the advanced module and its submodules
+#             └── masks.rs  # Fourth-level module for masking operations
+
+[package]
+name = "multi_module"
+version = "0.1.0"
+edition = "2021"
+authors = ["hacker3740@gmail.com>"] # Ji, Yong-Hyeon
+description = "A Rust project showcasing multi-module structure with arithmetic and bitwise operations."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
