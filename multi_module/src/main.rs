@@ -1,7 +1,7 @@
 mod operations;
 
-use operations::arithmetic::{add, sub, mul, div}; // Add these functions in your arithmetic module
-use operations::bitwise::basic::{logic_and, logic_or, logic_xor}; // Add xor to your basic module
+use operations::arithmetic::{add, sub, mul, div};
+use operations::bitwise::basic::{logic_and, logic_or, logic_xor};
 use operations::bitwise::advanced::masks::apply_mask;
 
 fn main() {
@@ -20,7 +20,7 @@ fn main() {
     // Bitwise basic operations
     let and_result = logic_and(0b1100, 0b1010);
     let or_result = logic_or(0b1100, 0b1010);
-    let xor_result = logic_xor(0b1100, 0b1010); // Assuming you add this function
+    let xor_result = logic_xor(0b1100, 0b1010);
 
     println!("\nBitwise Basic Operations:");
     println!("AND: {:04b}", and_result);
