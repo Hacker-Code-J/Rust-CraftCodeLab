@@ -1,0 +1,312 @@
+\chapter{Introduction to Rust Part I}
+\section{Setting Up and Getting Started}
+\subsection{Installing Rust (Linux)}
+\begin{quote}
+``How to install Rust and the necessary tools on your system''
+\end{quote}
+
+\newpage
+\subsection{Rust Terminal}
+\begin{quote}
+``Introduction to using the Rust terminal for compiling and running Rust programs''
+\end{quote}
+
+%\begin{lstlisting}[style=zsh]
+%@~$ rustc
+%\end{lstlisting}
+%\begin{longtable}{p{0.25\linewidth} p{0.7\linewidth}}
+%\caption{Rustc Command-Line Options}\\
+%
+%\textbf{Usage} & \texttt{rustc [OPTIONS] INPUT} \\
+%\hline
+%\textbf{Option} & \textbf{Description} \\
+%\hline
+%\endfirsthead
+%\multicolumn{2}{c}%
+%{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+%\textbf{Option} & \textbf{Description} \\
+%\hline
+%\endhead
+%\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+%\endfoot
+%\hline
+%\endlastfoot
+%
+%\texttt{-h, --help} & Display this message. \\
+%\texttt{--cfg SPEC} & Configure the compilation environment. SPEC supports the syntax \texttt{NAME[="VALUE"]}. \\
+%\texttt{-L [KIND=]PATH} & Add a directory to the library search path. The optional KIND can be one of \texttt{dependency, crate, native, framework}, or \texttt{all} (the default). \\
+%\texttt{-l [KIND]=NAME} & Link the generated crate(s) to the specified native library NAME. The KIND can be \texttt{static}, \texttt{framework}, or \texttt{dylib} (the default). \\
+%\texttt{--crate-type TYPE} & Specify types of crates for the compiler to emit (\texttt{bin}, \texttt{lib}, etc.). \\
+%\texttt{--crate-name NAME} & Specify the name of the crate being built. \\
+%\texttt{--edition YEAR} & Specify which edition of the compiler to use. Valid editions: \texttt{2015}, \texttt{2018}, \texttt{2021}, \texttt{2024}. \\
+%\texttt{-O} & Equivalent to \texttt{-C opt-level=2}, optimizing the compiled code. \\
+%\texttt{-o FILENAME} & Write output to \texttt{<filename>}. \\
+%\texttt{--out-dir DIR} & Write output to compiler-chosen filename in \texttt{<dir>}. \\
+%\texttt{--test} & Build a test harness. \\
+%\texttt{--target TARGET} & Target triple for which the code is compiled. \\
+%\texttt{-C, --codegen OPT[=VALUE]} & Set a codegen option. \\
+%\texttt{-V, --version} & Print version info and exit. \\
+%\texttt{-v, --verbose} & Use verbose output. \\
+%\end{longtable}
+%\begin{longtable}{p{0.25\linewidth} p{0.7\linewidth}}
+%\caption{Rustc Command-Line Options} \\
+%\textbf{Usage} & \texttt{rustc [OPTIONS] INPUT} \\
+%\hline
+%\textbf{Option} & \textbf{Description} \\
+%\hline
+%\endfirsthead
+%\multicolumn{2}{c}%
+%{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+%\textbf{Option} & \textbf{Description} \\
+%\hline
+%\endhead
+%\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+%\endfoot
+%\hline
+%\endlastfoot
+%
+%\texttt{-h, --help} & Display this message. \\
+%\texttt{--cfg SPEC} & Configure the compilation environment. SPEC supports the syntax \texttt{NAME[="VALUE"]}. \\
+%\texttt{-L [KIND=]PATH} & Add a directory to the library search path. The optional KIND can be one of \texttt{dependency, crate, native, framework}, or \texttt{all} (the default). \\
+%%\texttt{-l [KIND[:MODIFIERS]=]NAME[:RENAME]} & Link the generated crate(s) to the specified native library NAME. The optional KIND can be one of \texttt{static, framework}, or \texttt{dylib} (the default). Optional comma-separated MODIFIERS (bundle|verbatim|whole-archive|as-needed) may be specified each with a prefix of either '+' to enable or '-' to disable. \\
+%\texttt{--crate-type} & Comma separated list of types of crates for the compiler to emit (\texttt{bin|lib|rlib|dylib|cdylib|staticlib|proc-macro}). \\
+%\texttt{--crate-name NAME} & Specify the name of the crate being built. \\
+%\texttt{--edition} & Specify which edition of the compiler to use when compiling code. The default is 2015, and the latest stable edition is 2021. Valid editions: \texttt{2015|2018|2021|2024}. \\
+%\texttt{--emit} & Comma separated list of types of output for the compiler to emit (\texttt{asm|llvm-bc|llvm-ir|obj|metadata|link|dep-info|mir}). \\
+%%\texttt{--print} & Compiler information to print on stdout (\texttt{crate-name|file-names|sysroot|target-libdir|cfg|calling-conventions|target-list|target-cpus|target-features|relocation-models|code-models|tls-models|target-spec-json|all-target-specs-json|native-static-libs|stack-protector-strategies|link-args|deployment-target}). \\
+%\texttt{-g} & Equivalent to \texttt{-C debuginfo=2}. \\
+%\texttt{-O} & Equivalent to \texttt{-C opt-level=2}. \\
+%\texttt{-o FILENAME} & Write output to \texttt{<filename>}. \\
+%\texttt{--out-dir DIR} & Write output to compiler-chosen filename in \texttt{<dir>}. \\
+%\texttt{--explain OPT} & Provide a detailed explanation of an error message. \\
+%\texttt{--test} & Build a test harness. \\
+%\texttt{--target TARGET} & Target triple for which the code is compiled. \\
+%\texttt{-A, --allow LINT} & Set lint allowed. \\
+%\texttt{-W, --warn LINT} & Set lint warnings. \\
+%\texttt{--force-warn LINT} & Set lint force-warn. \\
+%\texttt{-D, --deny LINT} & Set lint denied. \\
+%\texttt{-F, --forbid LINT} & Set lint forbidden. \\
+%\texttt{--cap-lints LEVEL} & Set the most restrictive lint level. More restrictive lints are capped at this level. \\
+%\texttt{-C, --codegen OPT[=VALUE]} & Set a codegen option. \\
+%\texttt{-V, --version} & Print version info and exit. \\
+%\texttt{-v, --verbose} & Use verbose output. \\
+%\textbf{Additional help:} & \\
+%\texttt{-C help} & Print codegen options. \\
+%\texttt{-W help} & Print 'lint' options and default settings. \\
+%\texttt{--help -v} & Print the full set of options rustc accepts. \\
+%\end{longtable}
+
+\begin{lstlisting}[style=zsh]
+@:~$ rustup
+rustup 1.26.0 (5af9b9484 2023-04-05)
+The Rust toolchain installer
+\end{lstlisting}
+\begin{longtable}{|p{0.3\linewidth}|p{0.65\linewidth}|}
+	\caption{Rustup 1.26.0 Command-Line Interface Documentation} \\
+	\hline
+	\textbf{Section} & \textbf{Content} \\
+	\hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+	\hline
+	\textbf{Section} & \textbf{Content} \\
+	\hline
+	\endhead
+	\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot
+	\hline
+	\endlastfoot
+	
+	\textbf{Usage} & \texttt{rustup [OPTIONS] [+toolchain] <SUBCOMMAND>} \\
+	\hline
+	\textbf{Arguments} & \texttt{<+toolchain>} - Release channel (e.g., +stable) or custom toolchain to set override. \\
+	\hline
+	\textbf{Options} & 
+	\texttt{-v, --verbose} - Enable verbose output. \\
+	& \texttt{-q, --quiet} - Disable progress output. \\
+	& \texttt{-h, --help} - Print help information. \\
+	& \texttt{-V, --version} - Print version information. \\
+	\hline
+	\textbf{Subcommands} & 
+	\texttt{show} - Show the active and installed toolchains or profiles. \\
+	& \texttt{update} - Update Rust toolchains and rustup. \\
+	& \texttt{check} - Check for updates to Rust toolchains and rustup. \\
+	& \texttt{default} - Set the default toolchain. \\
+	& \texttt{toolchain} - Modify or query the installed toolchains. \\
+	& \texttt{target} - Modify a toolchain's supported targets. \\
+	& \texttt{component} - Modify a toolchain's installed components. \\
+	& \texttt{override} - Modify directory toolchain overrides. \\
+	& \texttt{run} - Run a command with an environment configured for a given toolchain. \\
+	& \texttt{which} - Display which binary will be run for a given command. \\
+	& \texttt{doc} - Open the documentation for the current toolchain. \\
+	& \texttt{man} - View the man page for a given command. \\
+	& \texttt{self} - Modify the rustup installation. \\
+	& \texttt{set} - Alter rustup settings. \\
+	& \texttt{completions} - Generate tab-completion scripts for your shell. \\
+	& \texttt{help} - Print this message or the help of the given subcommand(s). \\
+	\hline
+	\textbf{Discussion} & Rustup installs The Rust Programming Language from the official release channels, enabling you to easily switch between stable, beta, and nightly compilers and keep them updated. It makes cross-compiling simpler with binary builds of the standard library for common platforms. If you are new to Rust, consider running \hl{\texttt{rustup doc ----book}} to learn Rust. \\
+\end{longtable}
+\newpage
+\begin{lstlisting}[style=zsh]
+@:~$ cargo   
+Rust`s package manager
+\end{lstlisting}
+\begin{longtable}{|p{0.3\linewidth}|p{0.65\linewidth}|}
+	\caption{Cargo Command-Line Interface} \\
+	\hline
+	\textbf{Section} & \textbf{Content} \\
+	\hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+	\hline
+	\textbf{Section} & \textbf{Content} \\
+	\hline
+	\endhead
+	\hline \multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot
+	\hline
+	\endlastfoot
+	
+	\textbf{Usage} & \texttt{cargo [+toolchain] [OPTIONS] [COMMAND]} \\
+	& \texttt{cargo [+toolchain] [OPTIONS] -Zscript <MANIFEST\_RS> [ARGS]...} \\
+	\hline
+	\textbf{Options} & 
+	\texttt{-V, --version} - Print version info and exit. \\
+	& \texttt{--list} - List installed commands. \\
+	& \texttt{--explain <CODE>} - Provide a detailed explanation of a rustc error message. \\
+	& \texttt{-v, --verbose...} - Use verbose output (-vv very verbose/build.rs output). \\
+	& \texttt{-q, --quiet} - Do not print cargo log messages. \\
+	& \texttt{--color <WHEN>} - Coloring: auto, always, never. \\
+	& \texttt{-C <DIRECTORY>} - Change to DIRECTORY before doing anything (nightly-only). \\
+	& \texttt{--frozen} - Require Cargo.lock and cache are up to date. \\
+	& \texttt{--locked} - Require Cargo.lock is up to date. \\
+	& \texttt{--offline} - Run without accessing the network. \\
+	& \texttt{--config <KEY=VALUE>} - Override a configuration value. \\
+	& \texttt{-Z <FLAG>} - Unstable (nightly-only) flags to Cargo, see 'cargo -Z help' for details. \\
+	& \texttt{-h, --help} - Print help. \\
+	\hline
+	\textbf{Commands} & 
+	\texttt{build, b} - Compile the current package. \\
+	& \texttt{check, c} - Analyze the current package and report errors, but don't build object files. \\
+	& \texttt{clean} - Remove the target directory. \\
+	& \texttt{doc, d} - Build this package's and its dependencies' documentation. \\
+	& \texttt{new} - Create a new cargo package. \\
+	& \texttt{init} - Create a new cargo package in an existing directory. \\
+	& \texttt{add} - Add dependencies to a manifest file. \\
+	& \texttt{remove} - Remove dependencies from a manifest file. \\
+	& \texttt{run, r} - Run a binary or example of the local package. \\
+	& \texttt{test, t} - Run the tests. \\
+	& \texttt{bench} - Run the benchmarks. \\
+	& \texttt{update} - Update dependencies listed in Cargo.lock. \\
+	& \texttt{search} - Search registry for crates. \\
+	& \texttt{publish} - Package and upload this package to the registry. \\
+	& \texttt{install} - Install a Rust binary. Default location is \$HOME/.cargo/bin. \\
+	& \texttt{uninstall} - Uninstall a Rust binary. \\
+	& \texttt{...} - See all commands with --list. \\
+	\hline
+	\textbf{Additional Information} & See `\texttt{cargo help <command>}' for more information on a specific command. \\
+\end{longtable}
+\newpage
+\subsection{VSCode}
+\begin{quote}
+``Setting up Visual Studio Code for Rust development, including recommended extensions and configurations                                                                                                                                                                                                                                                                    ''
+\end{quote}
+\newpage
+\section{Basic Rust Development}
+\subsection{Project Overview}
+\begin{quote}
+``Understanding the structure of a Rust project and the purpose of each file''
+\end{quote}
+\begin{lstlisting}[style=zsh]
+@~$ cargo new my_project
+Created binary (application) `my_project` package
+\end{lstlisting}
+\begin{lstlisting}[style=zsh]
+@:~$ cd my_project
+@:~$ tree
+.
+├── Cargo.toml
+└── src
+	└── main.rs
+
+1 directory, 2 files
+\end{lstlisting}
+\begin{lstlisting}[style=zsh]
+@:~$ cat Cargo.toml        
+[package]
+name = "my_project"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+\end{lstlisting}
+
+\subsection{Cargo Run}
+\begin{quote}
+``How to build and run Rust projects using Cargo, Rust's package manager and build tool''
+\end{quote}
+\subsection{Creating a File}
+\begin{quote}
+``Basics of file operations in Rust, including creating new files''
+\end{quote}
+
+\newpage
+\section{title}Rust Programming Fundamentals:
+%Args: Understanding command-line arguments in Rust and how to access them.
+%Skipargs: Techniques for skipping certain arguments and processing the rest.
+%Option String: Introduction to Rust's Option type and how it is used with strings.
+%4. Error Handling and Debugging:
+%Unwrap: Understanding the unwrap method and its use cases, along with associated risks.
+%Result Types: Deep dive into Rust's Result type and how it is used for error handling.
+%More Friendly Error Messages: How to create user-friendly error messages to improve the debugging experience.
+%Error Handling: Comprehensive strategies for robust error handling in Rust applications.
+%Debugging: Techniques and tools for debugging Rust code effectively.
+%5. Advanced Topics and Best Practices:
+%Checking: Detailed explanation of Rust's compile-time checks, including type checking and borrow checking.
+%Cargo Run: Advanced usage of cargo run, exploring different flags and their purposes.
+
+\newpage
+\begin{itemize}
+\item \textbf{C:} \[
+\texttt{char},\quad \texttt{int},\quad \texttt{float},\quad \texttt{double}
+\]
+\item \textbf{Rust:} \begin{align*}
+\texttt{u8},\quad \texttt{u32},\quad \texttt{u64},\quad \texttt{i8},\quad
+\texttt{i32},\quad \texttt{i64},\quad \texttt{f32},\quad \texttt{f64}
+\end{align*}
+\end{itemize}
+	
+\begin{lstlisting}[style=rust]
+fn main() {
+	// This is a comment
+	println!("Hello, world!"); // Print "Hello, world!" to the console
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=rust]
+fn main() {
+	let value_1: i32 = 50;
+	let value_2: f64 = 3.14;
+	let result: value_1 + value_2 as i32;
+	println!("{}", result);
+}
+
+fn main() {
+	let value_1: i32 = 50;
+	let value_2: f64 = 3.14;
+	let result: value_1 as f64 + value_2;
+	println!("{}", result);
+}
+\end{lstlisting}
+
+%\begin{lstlisting}[style=C]
+%cargo --version
+%cargo 1.74.1 (ecb9851af 2023-10-18)
+% 
+%cargo new project_name
+%\end{lstlisting}

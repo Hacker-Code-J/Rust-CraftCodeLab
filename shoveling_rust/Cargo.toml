@@ -1,0 +1,24 @@
+# /shoveling_rust
+#     Cargo.toml            # Workspace manifest
+#     /main_app             # Main application
+#         Cargo.toml        # Main app manifest
+#         src/
+#             main.rs       # Main entry point
+#     /component_1          # First component (e.g., a library)
+#         Cargo.toml        # Component manifest
+#         src/
+#             lib.rs        # Library entry point
+#             /module_1     # Module within the component
+#                 mod.rs    # Module file
+#                 ...
+#     /component_2          # Second component
+#        ...
+
+[package]
+name = "shoveling_rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
