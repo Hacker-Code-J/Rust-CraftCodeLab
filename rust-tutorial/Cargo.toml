@@ -1,4 +1,5 @@
-# /shoveling_rust
+# Example Structure
+# /rust-tutorial
 #     Cargo.toml            # Workspace manifest
 #     /main_app             # Main application
 #         Cargo.toml        # Main app manifest
@@ -15,7 +16,7 @@
 #        ...
 
 [package]
-name = "shoveling_rust"
+name = "rust-tutorial"
 version = "0.1.0"
 edition = "2021"
 
